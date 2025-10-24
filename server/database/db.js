@@ -4,7 +4,18 @@ const { Client } = pkg;
 const database = new Client({
   user: process.env.DB_USER,
   host: process.env.DB_HOST,
-  host: process.env.DB_NAME,
-  host: process.env.DB_PASSWORD,
-  host: process.env.DB_PORT,
+  database: process.env.DB_NAME,
+  password: process.env.DB_PASSWORD,
+  port: process.env.DB_PORT,
 });
+
+try {
+  await database.connect();
+  console.log("Connected to Database successfully");
+  
+} catch (error) {
+  console.error("Database Connection Failed", error);
+  process.exit(1);
+}
+
+export default database;
