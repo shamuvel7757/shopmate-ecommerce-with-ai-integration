@@ -1,5 +1,4 @@
-import pkg from "pg";
-const { Client } = pkg;
+import { Client } from "pg";
 
 const database = new Client({
   user: process.env.DB_USER,
@@ -9,13 +8,17 @@ const database = new Client({
   port: process.env.DB_PORT,
 });
 
-try {
-  await database.connect();
-  console.log("Connected to Database successfully");
-  
-} catch (error) {
-  console.error("Database Connection Failed", error);
-  process.exit(1);
-}
+console.log("sam 1");
+
+export const connectDB = async () => {
+  try {
+    await database.connect();
+    console.log("sam j");
+    console.log("Connected to Database successfully");
+  } catch (error) {
+    console.error("shamuvel - Database Connection Failed", error);
+    process.exit(1);
+  }
+};
 
 export default database;
