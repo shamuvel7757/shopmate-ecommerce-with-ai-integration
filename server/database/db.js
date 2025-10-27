@@ -10,15 +10,23 @@ const database = new Client({
 
 console.log("sam 1");
 
-export const connectDB = async () => {
-  try {
-    await database.connect();
-    console.log("sam j");
-    console.log("Connected to Database successfully");
-  } catch (error) {
-    console.error("shamuvel - Database Connection Failed", error);
-    process.exit(1);
-  }
-};
+// export const connectDB = async () => {
+//   try {
+//     await database.connect();
+//     console.log("sam j");
+//     console.log("Connected to Database successfully");
+//   } catch (error) {
+//     console.error("shamuvel - Database Connection Failed", error);
+//     process.exit(1);
+//   }
+// };
+try {
+  await database.connect();
+  console.log("sam j");
+  console.log("Connected to Database successfully");
+} catch (error) {
+  console.error("shamuvel - Database Connection Failed", error);
+  process.exit(1);
+}
 
 export default database;

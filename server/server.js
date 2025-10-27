@@ -1,9 +1,9 @@
-import { config } from "dotenv";
+// import { config } from "dotenv";
 import app from "./app.js";
 import { v2 as cloudinary } from "cloudinary";
 import { connectDB } from "./database/db.js";
 
-config({ path: "./config/config.env" });
+// config({ path: "./config/config.env" });
 
 cloudinary.config({
   cloud_name: process.env.CLOUDINARY_CLIENT_NAME,
